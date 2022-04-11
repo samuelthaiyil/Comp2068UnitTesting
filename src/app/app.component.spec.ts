@@ -13,6 +13,7 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
+  // Runs before each test
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;

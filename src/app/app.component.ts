@@ -14,6 +14,7 @@ export class AppComponent {
 
   addTodoItem() {
     this.todoItems.push(this.todoItem);
+    this.todoItem = "";
   }
 
   deleteTodoItem(item: string) {
