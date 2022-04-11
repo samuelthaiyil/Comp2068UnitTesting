@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
-  let component: AppComponent;
+  let appComponent: AppComponent;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -16,21 +16,25 @@ describe('AppComponent', () => {
   // Runs before each test
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
-    component = fixture.componentInstance;
+    appComponent = fixture.componentInstance;
 
-    component.todoItems = ['Walk dog', 'Study for exams'];
+    appComponent.todoItems = ['Walk dog', 'Study for exams'];
+  });
+
+  it('should create app component', () => {
+    expect(appComponent).toBeTruthy();
   });
 
   it('should add todo item', () => {
     // given
     const newItem = 'Watch movie';
-    component.todoItem = newItem;
+    appComponent.todoItem = newItem;
 
     // when
-    component.addTodoItem();
+    appComponent.addTodoItem();
 
     // then
-    expect(component.todoItems).toContain(newItem);
+    expect(appComponent.todoItems).toContain(newItem);
   });
 
   it('should delete todo item', () => {
@@ -38,9 +42,9 @@ describe('AppComponent', () => {
     const itemToDelete = 'Walk dog';
 
     // when
-    component.deleteTodoItem(itemToDelete);
+    appComponent.deleteTodoItem(itemToDelete);
 
     // then
-    expect(component.todoItems).not.toContain(itemToDelete);
+    expect(appComponent.todoItems).not.toContain(itemToDelete);
   });
 });
