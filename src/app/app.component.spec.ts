@@ -27,14 +27,13 @@ describe('AppComponent', () => {
 
   it('should add todo item', () => {
     // given
-    const newItem = 'Watch movie';
-    appComponent.todoItem = newItem;
+    appComponent.todoItem = 'My new todo item';
 
     // when
     appComponent.addTodoItem();
 
     // then
-    expect(appComponent.todoItems).toContain(newItem);
+    expect(appComponent.todoItems).toContain('My new todo item');
   });
 
   it('should delete todo item', () => {

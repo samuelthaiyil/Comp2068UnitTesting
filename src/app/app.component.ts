@@ -13,8 +13,12 @@ export class AppComponent {
   ngOnInit() {}
 
   addTodoItem() {
-    this.todoItems.push(this.todoItem);
-    this.todoItem = "";
+    if (this.todoItem) {
+      this.todoItems.push(this.todoItem);
+      this.todoItem = '';
+    } else {
+      throw new Error('Cannot add an empty list item. ');
+    }
   }
 
   deleteTodoItem(item: string) {
