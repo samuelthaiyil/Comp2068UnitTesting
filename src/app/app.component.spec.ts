@@ -12,4 +12,38 @@ describe('AppComponent', () => {
       declarations: [AppComponent],
     }).compileComponents();
   });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    appComponent = fixture.componentInstance;
+
+    appComponent.todoItems = ['Walk the dog', 'Study for exams'];
+  });
+
+  it('should create AppComponent', () => {
+    expect(appComponent).toBeTruthy();
+  });
+
+  it('should add todo item', () => {
+    // given 
+    appComponent.todoItem = 'Watch a movie';
+
+    //when
+    appComponent.addTodoItem();
+
+    //Then
+    expect(appComponent.todoItems).toContain('Watch a movie');
+  });
+
+  it('should delete todo item', () => {
+    //given
+    const itemToDelete = 'Walk the dog';
+
+    //when
+    appComponent.deleteTodoItem(itemToDelete);
+
+    //Then
+    expect(appComponent.todoItems).not.toContain(itemToDelete);
+  });
+
 });
